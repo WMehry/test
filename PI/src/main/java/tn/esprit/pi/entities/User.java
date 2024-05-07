@@ -42,23 +42,7 @@ public class User implements UserDetails {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern="yyyy-MM-dd")
     private Date registrationDate = new Date() ;
 
-    @OneToMany(mappedBy = "user")
-    private Set<ReservationTerrain> reservationTerrains;
 
-    @OneToOne(mappedBy ="user")
-    private Ticket ticket;
-
-    @OneToMany(cascade = CascadeType.ALL, mappedBy ="user")
-    private Set<Commentaire> Commentaires;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private Set<Publication> publications;
-
-    @OneToOne(mappedBy = "user")
-    private Panier panier;
-
-    @OneToMany(cascade = CascadeType.ALL)
-    private  Set<Commande> commandes;
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of(new SimpleGrantedAuthority(role.name())) ;
