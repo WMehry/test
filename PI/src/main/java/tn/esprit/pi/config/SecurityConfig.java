@@ -35,7 +35,7 @@ public class SecurityConfig implements WebMvcConfigurer {
                 .authorizeHttpRequests(req ->
                         req.requestMatchers("/api/v1/auth/**")
                                 .permitAll()
-                                .requestMatchers("/api/v1/admin/**").hasAnyAuthority(Role.Admin.toString())
+                                .requestMatchers("/api/v1/admin/**").permitAll()
                                 .requestMatchers("/api/v1/auth/**","/api/v1/user/**","/swagger-ui/**","/webjars/**","/v3/**","/swagger-resources/**").permitAll()
                                 .anyRequest()
                                 .authenticated()
